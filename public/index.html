@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <input type="text" id="name" placeholder="*Name">
-    <input type="text" id="price" placeholder="Price">
-    <button id="submit">Submit</button>
+    <div id="app">
+        <input type="text" v-model="name" placeholder="*Name">
+        <input type="text" v-model="price" placeholder="*Price">
+        <button @click="send">Submit</button>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
@@ -25,6 +27,9 @@
       };
       firebase.initializeApp(config);
     </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
 
     <script src="js/index.js"></script>
 </body>
