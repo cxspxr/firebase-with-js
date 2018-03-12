@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DB 2</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>
+
+            </th>
+        </thead>
+
+        <tbody>
+            <tr></tr>
+        </tbody>
+    </table>
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-messaging.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBR7rHCEBQ4N_-pJRvg2loW7fosGzKYSdE",
+        authDomain: "database-6f09c.firebaseapp.com",
+        databaseURL: "https://database-6f09c.firebaseio.com",
+        projectId: "database-6f09c",
+        storageBucket: "database-6f09c.appspot.com",
+        messagingSenderId: "818252658533"
+      };
+      firebase.initializeApp(config);
+      var items = firebase.database().ref('items');
+      console.log(items.on);
+    </script>
+
+</body>
+</html>
