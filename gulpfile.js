@@ -1,24 +1,18 @@
+require('require-dir')('./gulp');
+
 const gulp = require('gulp');
-const bs = require('browser-sync');
+const seq = require('run-sequence');
+const argv = require('yargs').argv;
+const server = require('./gulp/server.js');
 
+gulp.task('default', ['coffee', 'stylus'], function(){
+	if(argv.dev){
+		seq('server');
 
-gulp.task('server', function() {
-    bs.init({
-        server: './',
-        ghostMode: false,
-        open: false,
-        notify: false
-    });
+		gulp.watch('assets/stylus/**/*', ['stylus']);
+		gulp.watch('assets/coffee/**/*', ['coffee']);
+		gulp.watch('public/**/*.html', function(){
+			server.reload()
+		});
+	}
 });
-
-gulp.task('watch', function() {
-    gulp.watch('index.html', function() {
-        bs.reload();
-    });
-
-    gulp.watch('js/*.js', function() {
-        bs.reload();
-    });
-});
-
-gulp.task('default', ['server', 'watch']);
