@@ -82,7 +82,8 @@ gulp.task('coffee', function(){
     webpack(
         Object.assign(webpackCommonConfig, {
             entry: {
-                'index': 'Index'
+                'index': 'Index',
+                'firebase': 'Firebase'
             },
             output: {
                 filename: '[name].js',

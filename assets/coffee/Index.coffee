@@ -1,16 +1,39 @@
-require './firebase'
+import Item from './components/Item'
 
 new Vue
     el: '#app'
     data:
         name: null
         price: null
-        db: firebase.database()
+        db: firebase.database().ref()
+        items: []
+
+    components:
+        item: Item
 
     methods:
-        send: ->
-            key = @db.ref().child("items").push().key
-            @db.ref('items/' + key).set
-                name: @name
-                price: @price
-                
+        add: ->
+            creationObject = {}
+            creationObject['items/' + @db.child("items").push().key] =
+                name: ''
+                price: ''
+
+            @db.update creationObject
+
+
+    mounted: ->
+        @db.child('items').on 'value', (snapshot) => @items = snapshot.val()
+
+    computed:
+        average: ->
+            sum = 0
+            n = 0
+
+            for id, item of @items
+                sum+= +item.price
+                n++
+
+            if n
+                (sum / n).toFixed 2
+            else
+                "There are no items to show the average price"

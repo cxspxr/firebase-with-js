@@ -9,14 +9,21 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="name" placeholder="*Name">
-        <input type="text" v-model="price" placeholder="*Price">
-        <button @click="send">Submit</button>
+        <item v-for="(i, index) of items"  v-if="i" :name="i.name" :price="i.price" :id="index">
+        </item>
+
+        <div>Average Price: {{ average }}</div>
+
+        <div class="item-add" @click="add">
+            <span class="item-add-sign">+</span>
+            Add another item
+        </div>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="js/firebase.js"></script>
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>
 </body>
