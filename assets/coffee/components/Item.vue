@@ -39,11 +39,12 @@ export default
 
     input
         font-size 1rem
+        margin-right 10px
 
     &-delete
         color red
         font-weight bold
-        margin-left 15px
+        margin-left 5px
         font-size 1.5rem
         cursor pointer
 
