@@ -9,6 +9,10 @@
 </head>
 <body>
     <div id="app">
+        <div class="items-header">
+            <span>Name</span>
+            <span>Price</span>
+        </div>
         <item v-for="(i, index) of items"  v-if="i" :name="i.name" :price="i.price" :id="index">
         </item>
 
