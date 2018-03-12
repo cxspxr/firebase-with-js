@@ -15,6 +15,10 @@ gulp.task('watch', function() {
     gulp.watch('index.html', function() {
         bs.reload();
     });
+
+    gulp.watch('js/*.js', function() {
+        bs.reload();
+    });
 });
 
 gulp.task('default', ['server', 'watch']);
