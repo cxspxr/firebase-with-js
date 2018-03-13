@@ -19,15 +19,19 @@ export default
                 name: @name
                 price: @price
 
+
+            @db.ref().onDisconnect().cancel =>
+                console.log 'disconnected'
             @db.ref('items/' + @id).set item
 
-        remove: -> @db.ref('items/' + @id).set null
+        remove: ->
+            @db.ref().onDisconnect().cancel =>
+                console.log 'disconnected'
+            @db.ref('items/' + @id).set null
 
     watch:
         name: -> do @update
         price: -> do @update
-
-    mounted: -> console.log @id
 
 </script>
 

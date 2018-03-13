@@ -20,9 +20,15 @@ new Vue
 
             @db.update creationObject
 
-
     mounted: ->
-        @db.child('items').on 'value', (snapshot) => @items = snapshot.val()
+
+        @db.onDisconnect().cancel =>
+            console.log 'disconnected'
+            
+        @db.child('items').on 'value', (snapshot) =>
+            console.log 'connected'
+            @items = snapshot.val()
+
 
     computed:
         average: ->
