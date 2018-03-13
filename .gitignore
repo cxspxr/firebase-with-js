@@ -3,3 +3,4 @@ node_modules
 gulp/.server
 public/js
 public/css
+.env

@@ -7,6 +7,8 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+require('dotenv').config();
+
 var plugins = {
     production: [
         new webpack.LoaderOptionsPlugin({
@@ -15,7 +17,16 @@ var plugins = {
         new UglifyJSPlugin
     ],
     development: [
-
+        new webpack.DefinePlugin({
+            "process.env": {
+                "DB_KEY": JSON.stringify(process.env.DB_KEY),
+                "DB_DOMAIN": JSON.stringify(process.env.DB_DOMAIN),
+                "DB_URL": JSON.stringify(process.env.DB_URL),
+                "DB_ID": JSON.stringify(process.env.DB_ID),
+                "DB_BUCKET": JSON.stringify(process.env.DB_BUCKET),
+                "DB_SENDER": JSON.stringify(process.env.DB_SENDER)
+            }
+        })
     ]
 }
 
@@ -66,6 +77,9 @@ var webpackCommonConfig = {
                 }
             }
         }
+    },
+    node: {
+        fs: 'empty'
     }
 };
 

@@ -17,6 +17,7 @@
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.2.3",
     "css-loader": "^0.28.10",
+    "dotenv": "^5.0.1",
     "file-loader": "^1.1.11",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
