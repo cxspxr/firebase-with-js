@@ -32,7 +32,7 @@
     "rupture": "^0.7.1",
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.2.3",
-    "vue-loader": "^14.2.1",
+    "vue-loader": "^15.0.0",
     "vue-template-compiler": "^2.5.15",
     "webpack": "^4.1.1",
     "yargs": "^11.0.0"
