@@ -30,7 +30,7 @@
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
     "rupture": "^0.7.1",
-    "stylus-loader": "^3.0.2",
+    "stylus-loader": "^5.0.0",
     "uglifyjs-webpack-plugin": "^1.2.3",
     "vue-loader": "^14.2.1",
     "vue-template-compiler": "^2.5.15",
